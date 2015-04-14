@@ -16,7 +16,6 @@ for table in tables:
 			datatable = table.find_all('table')[0]
 	except:
 		continue
-print "\t Date \t Close"
 trs = datatable.find_all('tr')
 for tr in trs:
 	try:
@@ -25,7 +24,7 @@ for tr in trs:
 		close = str(tds[4].get_text())
 	except:
 		continue
-	print "\t %s \t %s" % (date,close)
+	print "Date: %s \t Close: %s" % (date,close)
 	
 	
 	

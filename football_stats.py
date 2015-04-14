@@ -18,15 +18,19 @@ for table in tables:
 		
 	
 trs = table.find_all('tr')
-print "Player \t Position \t Team \t Total Touchdowns"
+i = 0
 for tr in trs:
 	try:
-		tds = tr.find_all('td')
-		name = str(tds[0].get_text())
-		pos = str(tds[1].get_text())
-		team = str(tds[2].get_text())
-		touchdowns = str(tds[6].get_text())
-		print "%s \t %s \t %s \t %s" % (name,pos,team,touchdowns)
+		if i < 20:
+			tds = tr.find_all('td')
+			name = str(tds[0].get_text())
+			pos = str(tds[1].get_text())
+			team = str(tds[2].get_text())
+			touchdowns = str(tds[6].get_text())
+			print "Player: %s \t Position: %s \t Team: %s \t Touchdowns: %s" % (name,pos,team,touchdowns)
+			i = i + 1
+		else:
+			break
 	except:
 		continue
 

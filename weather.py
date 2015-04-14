@@ -14,15 +14,14 @@ for table in tables:
 	except:
 		continue
 
+
 tds = datatable.find_all('td',class_="day")
 for td in tds:
 	try:
 		date = td.find_all('a',class_="dateText")[0]
 		value_header = td.find_all('td',class_="value-header")[0]
 		highlow = td.find_all('td',class_="values highLow")[0]
-		
-
-		print "Day: %s \t %s \t High|Low %s" % (date.get_text(), value_header.get_text(),highlow.get_text())
+		print "Day: %d \t Actual/Forecast/Record: %s \t High Low: %s" % (int(date.get_text()), value_header.get_text(),highlow.get_text())
 		
 	except:
 		continue
